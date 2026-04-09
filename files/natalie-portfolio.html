@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work Samples — Natalie Laderas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #FAFAF7;
+      --ink: #1C1C1A;
+      --mid: #6B6B65;
+      --light: #B0AFA8;
+      --accent: #3D6B5E;
+      --accent-light: #EBF2EF;
+      --warm: #C4874A;
+      --border: rgba(28,28,26,0.1);
+      --card-bg: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,250,247,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 6rem 3rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      animation: fadeUp 0.7s ease both;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--mid);
+    }
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 15px;
+      color: var(--mid);
+      max-width: 520px;
+    }
+
+    /* ── Section wrapper ── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 3rem;
+      border-top: 1px solid var(--border);
+      animation: fadeUp 0.6s ease both;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--light);
+      white-space: nowrap;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      margin-left: 1rem;
+    }
+
+    /* ── NEW WORK: Recent Work banner ── */
+    .recent-banner {
+      background: var(--accent);
+      color: white;
+      border-radius: 4px;
+      padding: 0.35rem 0.75rem;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+
+    .recent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Placeholder card — ready to fill in */
+    .placeholder-card {
+      border: 1.5px dashed rgba(61,107,94,0.35);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: var(--accent-light);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .placeholder-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(61,107,94,0.1);
+    }
+    .placeholder-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .placeholder-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: white;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .placeholder-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .placeholder-card p {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    .placeholder-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: auto;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(61,107,94,0.2);
+      transition: gap 0.2s;
+    }
+    .placeholder-link:hover { gap: 0.7rem; }
+    .placeholder-link svg {
+      width: 14px; height: 14px;
+      fill: none; stroke: currentColor;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .edit-note {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      font-style: italic;
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+    }
+
+    /* ── Work cards ── */
+    .work-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .work-card:hover {
+      box-shadow: 0 8px 32px rgba(28,28,26,0.08);
+      transform: translateY(-3px);
+    }
+    .work-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      background: var(--accent-light);
+    }
+    .work-card-body {
+      padding: 1.5rem;
+    }
+    .work-card-tag {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .work-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .work-card p {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .work-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s, gap 0.2s;
+    }
+    .work-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      gap: 0.7rem;
+    }
+    .work-link svg {
+      width: 12px; height: 12px;
+      fill: none; stroke: currentColor;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* ── Infographic grid ── */
+    .infographic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .infographic-item {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--card-bg);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .infographic-item:hover {
+      box-shadow: 0 6px 24px rgba(28,28,26,0.07);
+      transform: translateY(-2px);
+    }
+    .infographic-item img {
+      width: 100%;
+      display: block;
+    }
+    .infographic-caption {
+      padding: 0.75rem 1rem;
+      font-size: 12px;
+      color: var(--mid);
+      letter-spacing: 0.06em;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Tool badge ── */
+    .tool-badge {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: #F0EDE8;
+      color: var(--mid);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--light);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .hero, .section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="#">Natalie Laderas</a>
+    <ul class="nav-links">
+      <li><a href="#recent">Recent Work</a></li>
+      <li><a href="#elearning">eLearning</a></li>
+      <li><a href="#design">Design</a></li>
+      <li><a href="#infographics">Infographics</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <div class="hero-eyebrow">Portfolio</div>
+    <h1>Work Samples<br><em>& Selected Projects</em></h1>
+    <p class="hero-sub">A curated collection of learning experience design, instructional design, and visual communication work.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 1: RECENT WORK (placeholder)
+       ══════════════════════════════════════════ -->
+  <section class="section" id="recent" style="animation-delay:0.1s">
+    <div class="section-header">
+      <span class="section-label">01</span>
+      <h2 class="section-title">Recent Work</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="recent-banner">New — 2024 / 2026</div>
+
+    <div class="recent-grid">
+
+      <!-- Canvas site link -->
+      <div class="placeholder-card">
+        <div class="placeholder-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Canvas Course Site</h3>
+        <p>View a Canvas course page that features lessons and an activity from an "Aromatherapy and Wellness" course.</p>
+        <a href="https://achs.instructure.com/courses/5268/pages/getting-started" target="_blank" class="placeholder-link">
+          View Canvas site
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- PDF content -->
+      <div class="placeholder-card">
+        <div class="placeholder-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Rainbow Food Tracker</h3>
+        <p>View a pdf of a food tracker worksheet that helps students build a gut-healthy diet.</p>
+        <a href="files/Rainbow_Food_Tracker_Worksheet.pdf" target="_blank" class="placeholder-link">
+          Download PDF
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Third card: coming soon -->
+      <div class="placeholder-card">
+        <span class="edit-note">coming soon</span>
+        <div class="placeholder-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <h3>Additional Recent Project</h3>
+        <p>Content to be added here.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 2: eLEARNING
+       ══════════════════════════════════════════ -->
+  <section class="section" id="elearning" style="animation-delay:0.2s">
+    <div class="section-header">
+      <span class="section-label">02</span>
+      <h2 class="section-title">eLearning Examples</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+
+      <div class="work-card">
+        <img
+          class="work-card-img"
+          src="https://nk1lk3nny.github.io/Nki1lk3nny.github.io/images/Rise_Ethnographic_MED.png"
+          alt="Rise and Storyline eLearning example"
+          onerror="this.style.background='#EBF2EF';this.style.minHeight='200px'"
+        />
+        <div class="work-card-body">
+          <div class="work-card-tag">eLearning</div>
+          <h3>Rise & Storyline Course</h3>
+          <p>An example combining Articulate Rise and Storyline to create an engaging, interactive eLearning module.</p>
+          <a href="https://360.articulate.com/review/content/52477f27-2719-44d4-bca2-1476616e95e3/review" target="_blank" class="work-link">
+            View course
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 3: DESIGN
+       ══════════════════════════════════════════ -->
+  <section class="section" id="design" style="animation-delay:0.3s">
+    <div class="section-header">
+      <span class="section-label">03</span>
+      <h2 class="section-title">Design Examples</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+
+      <div class="work-card">
+        <img
+          class="work-card-img"
+          src="https://nk1lk3nny.github.io/Nki1lk3nny.github.io/images/Natalie_portfolio_SM.png"
+          alt="Natalie Laderas work samples PDF preview"
+          onerror="this.style.background='#EBF2EF';this.style.minHeight='200px'"
+        />
+        <div class="work-card-body">
+          <div class="work-card-tag">PDF Portfolio</div>
+          <h3>Work Samples 2024</h3>
+          <p>A curated PDF of design and instructional design work samples with explanations of process and outcomes.</p>
+          <a href="https://nk1lk3nny.github.io/Nki1lk3nny.github.io/files/Work Samples - Natalie Laderas 2024.pdf" target="_blank" class="work-link">
+            Download PDF
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 4: INFOGRAPHICS
+       ══════════════════════════════════════════ -->
+  <section class="section" id="infographics" style="animation-delay:0.4s">
+    <div class="section-header">
+      <span class="section-label">04</span>
+      <h2 class="section-title">Infographic Samples</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <div class="tool-badge">Created in PowerPoint</div>
+      <div class="infographic-grid">
+
+        <div class="infographic-item">
+          <img src="https://nk1lk3nny.github.io/Nki1lk3nny.github.io/images/5_Bad_Uses_Mobile_eLearning.png" alt="5 Bad Uses of Mobile eLearning" />
+          <div class="infographic-caption">5 Bad Uses of Mobile eLearning</div>
+        </div>
+
+        <div class="infographic-item">
+          <img src="https://nk1lk3nny.github.io/Nki1lk3nny.github.io/images/5_Ideal_Uses_Mobile_eLearning.png" alt="5 Ideal Uses of Mobile eLearning" />
+          <div class="infographic-caption">5 Ideal Uses of Mobile eLearning</div>
+        </div>
+
+        <div class="infographic-item">
+          <img src="https://nk1lk3nny.github.io/Nki1lk3nny.github.io/images/Infographic_AIJobData.png" alt="AI Job Data Infographic" />
+          <div class="infographic-caption">AI Job Data</div>
+        </div>
+
+        <div class="infographic-item">
+          <img src="https://nk1lk3nny.github.io/Nki1lk3nny.github.io/images/AI_JobData.png" alt="AI Job Data chart" />
+          <div class="infographic-caption">AI Job Data — chart view</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="tool-badge">Created in Adobe Illustrator</div>
+      <div style="padding: 2.5rem; border: 1.5px dashed var(--border); border-radius: 6px; text-align: center; color: var(--light); font-size: 13px; letter-spacing: 0.06em;">
+        Coming soon — Adobe Illustrator work
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    © Natalie Laderas &nbsp;·&nbsp; Learning Experience Design
+  </footer>
+
+</body>
+</html>
